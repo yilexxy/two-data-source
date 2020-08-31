@@ -1,0 +1,16 @@
+spring:
+  application:
+    name: two-data-source
+  datasource:
+    account:
+      url: jdbc:mysql://10.12.107.89:3306/ybhw_db?serverTimezone=UTC&useUnicode=true&characterEncoding=utf-8&useSSL=false&pinGlobalTxToPhysicalConnection=true
+      username: ybhw_oper
+      password: ******
+    order:
+      url: jdbc:mysql://10.12.107.89:3306/tuyuan_hwdb?serverTimezone=UTC&useUnicode=true&characterEncoding=utf-8&useSSL=false&pinGlobalTxToPhysicalConnection=true
+      username: ybhw_oper
+      password: ******
+
+#logging:
+#  level:
+#    root: DEBUG

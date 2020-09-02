@@ -47,8 +47,11 @@ public class OrderServiceImpl implements OrderService {
         // 用户费用扣除
         accountDO.setBalance(accountDO.getBalance().subtract(orderInfoDO.getAmount()));
         accountDAO.updateByPrimaryKey(accountDO);
+
+        // 测试抛出异常
         //error("createOrder error");
 
+        // 订单表新增一条记录
         orderInfoDAO.insertSelective(orderInfoDO);
 
         return "成功(-10)";
@@ -72,8 +75,11 @@ public class OrderServiceImpl implements OrderService {
             // 用户费用扣除
             accountDO.setBalance(accountDO.getBalance().subtract(orderInfoDO.getAmount()));
             accountDAO.updateByPrimaryKey(accountDO);
+
+            // 测试抛出异常
             //error("createOrderCode error");
 
+            // 订单表新增一条记录
             orderInfoDAO.insertSelective(orderInfoDO);
             transactionManager.commit(transaction);
 

@@ -6,11 +6,11 @@ spring:
       #数据源名称
       name: druidDataSource-account
       #指定连接数据库的url
-      url: jdbc:mysql://10.12.107.89:3306/ybhw_db?serverTimezone=UTC&useUnicode=true&characterEncoding=utf-8&useSSL=false&pinGlobalTxToPhysicalConnection=true
+      url: jdbc:mysql://10.**.**.**:3306/ybhw_db?serverTimezone=UTC&useUnicode=true&characterEncoding=utf-8&useSSL=false&pinGlobalTxToPhysicalConnection=true
       #指定连接数据库的名称
-      username: ybhw_oper
+      username: ******
       #指定连接数据库的密码
-      password: hyMAN@19qwe
+      password: ******
       #指定启动连接池时，初始建立的连接数量
       initialSize: 50
       #指定必须保持连接的最小值
@@ -26,11 +26,11 @@ spring:
       #数据源名称
       name: druidDataSource-order
       #指定连接数据库的url
-      url: jdbc:mysql://10.12.107.89:3306/tuyuan_hwdb?serverTimezone=UTC&useUnicode=true&characterEncoding=utf-8&useSSL=false&pinGlobalTxToPhysicalConnection=true
+      url: jdbc:mysql://10.**.**.**:3306/tuyuan_hwdb?serverTimezone=UTC&useUnicode=true&characterEncoding=utf-8&useSSL=false&pinGlobalTxToPhysicalConnection=true
       #指定连接数据库的名称
-      username: ybhw_oper
+      username: ******
       #指定连接数据库的密码
-      password: hyMAN@19qwe
+      password: ******
       #指定启动连接池时，初始建立的连接数量
       initialSize: 50
       #指定必须保持连接的最小值

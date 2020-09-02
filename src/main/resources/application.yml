@@ -3,13 +3,45 @@ spring:
     name: two-data-source
   datasource:
     account:
-      url: jdbc:mysql://10.**.**.**:3306/ybhw_db?serverTimezone=UTC&useUnicode=true&characterEncoding=utf-8&useSSL=false&pinGlobalTxToPhysicalConnection=true
+      #数据源名称
+      name: druidDataSource-account
+      #指定连接数据库的url
+      url: jdbc:mysql://10.12.107.89:3306/ybhw_db?serverTimezone=UTC&useUnicode=true&characterEncoding=utf-8&useSSL=false&pinGlobalTxToPhysicalConnection=true
+      #指定连接数据库的名称
       username: ybhw_oper
-      password: ******
+      #指定连接数据库的密码
+      password: hyMAN@19qwe
+      #指定启动连接池时，初始建立的连接数量
+      initialSize: 50
+      #指定必须保持连接的最小值
+      maxActive: 200
+      #指定必须保持连接的最小值
+      minIdle: 5
+      #指定连接池等待连接返回的最大等待时间，毫秒单位
+      maxWait: 60000
+      #申请连接的时候检测，如果空闲时间大于timeBetweenEvictionRunsMillis，执行validationQuery检测连接是否有效
+      testWhileIdle: true
+
     order:
-      url: jdbc:mysql://10.**.**.**:3306/tuyuan_hwdb?serverTimezone=UTC&useUnicode=true&characterEncoding=utf-8&useSSL=false&pinGlobalTxToPhysicalConnection=true
+      #数据源名称
+      name: druidDataSource-order
+      #指定连接数据库的url
+      url: jdbc:mysql://10.12.107.89:3306/tuyuan_hwdb?serverTimezone=UTC&useUnicode=true&characterEncoding=utf-8&useSSL=false&pinGlobalTxToPhysicalConnection=true
+      #指定连接数据库的名称
       username: ybhw_oper
-      password: ******
+      #指定连接数据库的密码
+      password: hyMAN@19qwe
+      #指定启动连接池时，初始建立的连接数量
+      initialSize: 50
+      #指定必须保持连接的最小值
+      maxActive: 200
+      #指定必须保持连接的最小值
+      minIdle: 5
+      #指定连接池等待连接返回的最大等待时间，毫秒单位
+      maxWait: 60000
+      #申请连接的时候检测，如果空闲时间大于timeBetweenEvictionRunsMillis，执行validationQuery检测连接是否有效
+      testWhileIdle: true
+
 
 #logging:
 #  level:

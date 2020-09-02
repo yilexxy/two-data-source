@@ -16,7 +16,8 @@ import org.springframework.transaction.config.JtaTransactionManagerBeanDefinitio
 import org.springframework.transaction.support.DefaultTransactionDefinition;
 
 /**
- * @author feng
+ * 测试分布式事务-定单业务
+ * @author yile
  */
 @Slf4j
 @Service
@@ -31,7 +32,11 @@ public class OrderServiceImpl implements OrderService {
     @Autowired
     PlatformTransactionManager transactionManager;
 
-
+    /**
+     * 注入的方式测试分布式事务
+     * @param orderInfoDO
+     * @return
+     */
     @Override
     @Transactional(rollbackFor = Exception.class)
     public String createOrder(OrderInfoDO orderInfoDO) {
@@ -42,13 +47,18 @@ public class OrderServiceImpl implements OrderService {
         // 用户费用扣除
         accountDO.setBalance(accountDO.getBalance().subtract(orderInfoDO.getAmount()));
         accountDAO.updateByPrimaryKey(accountDO);
-        //error("createOrderCode error");
+        error("createOrder error");
 
         orderInfoDAO.insertSelective(orderInfoDO);
 
         return "成功(-10)";
     }
 
+    /**
+     * 非注入的方式测试分布式事务
+     * @param orderInfoDO
+     * @return
+     */
     @Override
     public String createOrderCode(OrderInfoDO orderInfoDO) {
         TransactionDefinition transactionDefinition = new DefaultTransactionDefinition();
@@ -62,7 +72,7 @@ public class OrderServiceImpl implements OrderService {
             // 用户费用扣除
             accountDO.setBalance(accountDO.getBalance().subtract(orderInfoDO.getAmount()));
             accountDAO.updateByPrimaryKey(accountDO);
-            //error("createOrderCode error");
+            error("createOrderCode error");
 
             orderInfoDAO.insertSelective(orderInfoDO);
             transactionManager.commit(transaction);

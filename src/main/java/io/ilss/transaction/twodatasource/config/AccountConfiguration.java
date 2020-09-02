@@ -26,23 +26,40 @@ import java.util.Properties;
 @MapperScan(basePackages = {"io.ilss.transaction.twodatasource.dao.account"}, sqlSessionTemplateRef = "accountSqlSessionTemplate")
 public class AccountConfiguration {
 
+    @Value("${spring.datasource.account.name}")
+    private String name;
     @Value("${spring.datasource.account.url}")
     private String url;
     @Value("${spring.datasource.account.username}")
     private String username;
     @Value("${spring.datasource.account.password}")
     private String password;
-
+    @Value("${spring.datasource.account.initialSize}")
+    private int initialSize;
+    @Value("${spring.datasource.account.maxActive}")
+    private int maxActive;
+    @Value("${spring.datasource.account.minIdle}")
+    private int minIdle;
+    @Value("${spring.datasource.account.maxWait}")
+    private long maxWait;
+    @Value("${spring.datasource.account.testWhileIdle}")
+    private boolean testWhileIdle;
 
 
     @Bean(name = "accountDataSource")
     public DataSource accountDataSource() {
         AtomikosDataSourceBean atomikosDataSourceBean = new AtomikosDataSourceBean();
         DruidXADataSource druidXADataSource = new DruidXADataSource();
+        druidXADataSource.setName(name);
         druidXADataSource.setUrl(url);
         druidXADataSource.setUsername(username);
         druidXADataSource.setPassword(password);
-        druidXADataSource.setName("druidDataSource-account");
+        druidXADataSource.setInitialSize(initialSize);
+        druidXADataSource.setMaxActive(maxActive);
+        druidXADataSource.setMinIdle(minIdle);
+        druidXADataSource.setMaxWait(maxWait);
+        druidXADataSource.setTestWhileIdle(testWhileIdle);
+
         atomikosDataSourceBean.setXaDataSource(druidXADataSource);
         atomikosDataSourceBean.setUniqueResourceName("accountResource");
         return atomikosDataSourceBean;

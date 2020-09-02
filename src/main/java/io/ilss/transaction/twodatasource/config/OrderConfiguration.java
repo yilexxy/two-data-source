@@ -25,23 +25,40 @@ import javax.sql.DataSource;
 @MapperScan(basePackages = {"io.ilss.transaction.twodatasource.dao.order"}, sqlSessionTemplateRef = "orderSqlSessionTemplate")
 public class OrderConfiguration {
 
-
+    @Value("${spring.datasource.order.name}")
+    private String name;
     @Value("${spring.datasource.order.url}")
     private String url;
     @Value("${spring.datasource.order.username}")
     private String username;
     @Value("${spring.datasource.order.password}")
     private String password;
+    @Value("${spring.datasource.order.initialSize}")
+    private int initialSize;
+    @Value("${spring.datasource.order.maxActive}")
+    private int maxActive;
+    @Value("${spring.datasource.order.minIdle}")
+    private int minIdle;
+    @Value("${spring.datasource.order.maxWait}")
+    private long maxWait;
+    @Value("${spring.datasource.order.testWhileIdle}")
+    private boolean testWhileIdle;
 
 
     @Bean(name = "orderDataSource")
     public DataSource orderDataSource() {
         AtomikosDataSourceBean atomikosDataSourceBean = new AtomikosDataSourceBean();
         DruidXADataSource druidXADataSource = new DruidXADataSource();
+        druidXADataSource.setName(name);
         druidXADataSource.setUrl(url);
         druidXADataSource.setUsername(username);
         druidXADataSource.setPassword(password);
-        druidXADataSource.setName("druidDataSource-order");
+        druidXADataSource.setInitialSize(initialSize);
+        druidXADataSource.setMaxActive(maxActive);
+        druidXADataSource.setMinIdle(minIdle);
+        druidXADataSource.setMaxWait(maxWait);
+        druidXADataSource.setTestWhileIdle(testWhileIdle);
+
         atomikosDataSourceBean.setXaDataSource(druidXADataSource);
         atomikosDataSourceBean.setUniqueResourceName("orderResource");
         return atomikosDataSourceBean;

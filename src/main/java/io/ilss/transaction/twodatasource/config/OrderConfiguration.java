@@ -18,7 +18,8 @@ import org.springframework.core.io.support.PathMatchingResourcePatternResolver;
 import javax.sql.DataSource;
 
 /**
- * @author feng
+ * 定单数据源配置
+ * @author wl
  */
 
 @Configuration

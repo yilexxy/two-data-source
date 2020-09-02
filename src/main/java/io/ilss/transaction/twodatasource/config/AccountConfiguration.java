@@ -19,7 +19,8 @@ import javax.sql.DataSource;
 import java.util.Properties;
 
 /**
- * @author feng
+ * 账户数据源配置
+ * @author wl
  */
 
 @Configuration

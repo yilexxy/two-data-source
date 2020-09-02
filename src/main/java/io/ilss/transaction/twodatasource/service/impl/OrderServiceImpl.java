@@ -17,7 +17,7 @@ import org.springframework.transaction.support.DefaultTransactionDefinition;
 
 /**
  * 测试分布式事务-定单业务
- * @author yile
+ * @author wl
  */
 @Slf4j
 @Service

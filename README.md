@@ -54,5 +54,5 @@ CREATE TABLE `account` (
 --  Records of `account`
 -- ----------------------------
 BEGIN;
-INSERT INTO `account` VALUES ('1', 'san', '李红', '2222222', '820.00', '2020-08-31 16:11:41', '2020-08-31 16:11:45');
+INSERT INTO `account` VALUES ('1', 'san', '李红', '2222222', '1000.00', '2020-08-31 16:11:41', '2020-08-31 16:11:45');
 COMMIT;
